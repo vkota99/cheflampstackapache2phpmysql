@@ -1,0 +1,15 @@
+Ref: https://www.linode.com/docs/applications/configuration-management/creating-your-first-chef-cookbook
+1)Go to cookbooks directory cd ~/chef-repo/cookbook
+copy lamp-stack and mysql folders to cookbook folder
+knife cookbook upload lamp-stack
+knife cookbook upload mysql --include-dependencies
+knife node run_list add chefnode "recipe[lamp-stack],recipe[lamp-stack::apache],recipe[lamp-stack::mysql],recipe[lamp-stack::php]"
+sudo chef-client
+Uninstalling the software in nodes :
+sudo apt-get purge mysql* -y
+sudo apt-get purge apache* -y
+sudo apt-get purge php* -y
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
+
+Issues : php.ini file is wrong

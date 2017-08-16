@@ -6,6 +6,8 @@ knife cookbook upload mysql --include-dependencies
 knife node run_list add chefnode "recipe[lamp-stack],recipe[lamp-stack::apache],recipe[lamp-stack::mysql],recipe[lamp-stack::php]"
 sudo chef-client
 Uninstalling the software in nodes :
+systemctl stop apche2
+systemctl stop  mysql-mysqldefault.service
 sudo apt-get purge mysql* -y
 sudo apt-get purge apache* -y
 sudo apt-get purge php* -y
